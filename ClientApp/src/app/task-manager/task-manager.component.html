@@ -1,0 +1,36 @@
+<div class="task-container">
+    <div class="add-task">
+        <input type="text" [(ngModel)]="newTask.name" placeholder="Title" />
+        <input type="date" [(ngModel)]="newTask.deadline" placeholder="Deadline" />
+        <textarea [(ngModel)]="newTask.description" placeholder="Take a note..."></textarea>
+        <button (click)="createTask()">Add</button>
+    </div>
+
+    <!-- Columns for each task status -->
+    <div class="status-columns">
+        <div *ngFor="let status of taskStatuses" class="status-column">
+            <h3>{{ status | taskStatus }}</h3>
+
+            <div class="tasks-grid">
+                <ng-container *ngFor="let task of tasks">
+                    <div *ngIf="task.status === status" class="task-card">
+
+                        <input [(ngModel)]="task.name" (blur)="updateTask(task)" placeholder="Title" />
+                        <textarea [(ngModel)]="task.description" (blur)="updateTask(task)"
+                            placeholder="Take a note..."></textarea>
+
+                        <!-- Task Status Button Group -->
+                        <div class="task-status-buttons">
+                            <button *ngFor="let status of taskStatuses" (click)="changeStatus(task, status)">
+                                {{ status | taskStatus }}
+                            </button>
+                        </div>
+
+                        <button (click)="deleteTask(task.id ?? '')" class="delete-btn">🗑</button>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+  

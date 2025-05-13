@@ -1,0 +1,24 @@
+<div class="login-container">
+    <h2>Login</h2>
+
+    <form (ngSubmit)="login()">
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+
+        <button type="submit">Login</button>
+     
+    </form>
+    <form (ngSubmit)="register()">
+    
+        <button type="Submit" style="color: brown; background-color: white;margin-top: 6px;" >New User? Register</button>
+    </form>
+
+    <!-- Error Popup -->
+    <div *ngIf="isError" class="error-popup">
+        <div class="error-message">{{ errorMessage }}</div>
+        <button class="close-btn" (click)="closeErrorPopup()">Close</button>
+    </div>
+</div>

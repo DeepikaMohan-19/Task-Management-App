@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/66f3fd85-1156-4e0c-b6da-0748042e9c10/resourceGroups/rg-nbhargav/providers/Microsoft.Web/sites/searchengine-fd-assesment",
+    "appService.deploySubpath": "."
+}
